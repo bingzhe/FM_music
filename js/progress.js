@@ -65,7 +65,9 @@ Progress.prototype.clickCtrl = function() {
     var _this = this;
     this.$progressBar.on('click', function(e) {
         var clickX = e.clientX;
-        var barLeft = _this.toLength(_this.$progressBar.css('left')) + _this.toLength(_this.$progress.css('left')) + _this.toLength(_this.$FM.css('left'));
+        var barLeft = _this.toLength(_this.$progressBar.css('left'))
+                + _this.toLength(_this.$progress.css('left'))
+                + _this.toLength(_this.$FM.css('left'));
         var left = clickX - barLeft - 4;
         _this.$progressLine.width(left);
         _this.$progressHandle.css('left', left);
@@ -86,6 +88,7 @@ Progress.prototype.timeText = function() {
         var fullTime = _this.audio.duration;
         _this.clock1 = setInterval(function() {
             var currentTime = _this.audio.currentTime;
+            console.log(currentTime)
             var currentWidth = parseInt(currentTime / fullTime * 200) + 'px';
             _this.$currentTime.text(_this.timeFormat(currentTime));
             _this.$progressLine.width(currentWidth);
